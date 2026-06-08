@@ -1,6 +1,6 @@
 # CS224R Final Project: Algorithm Sequencing in Deep RL
 
-This repo contains the cleaned experiment code for studying reinforcement-learning algorithms as training phases rather than fixed end-to-end choices.
+This repo contains the experiment code for studying reinforcement-learning algorithms as training phases rather than fixed end-to-end choices.
 
 The core question is whether schedules such as `PPO -> SAC`, `SAC -> PPO`, `BC -> SAC`, and `BC -> SAC -> PPO` improve sample efficiency, robustness, or final return under matched environment-step budgets.
 
@@ -19,8 +19,6 @@ scripts/         local run wrappers
 tests/           lightweight regression tests
 docs/            experiment and result-format notes
 ```
-
-Generated plots, report drafts, proposal PDFs, and old result artifacts were intentionally not ported.
 
 ## Setup
 
