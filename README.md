@@ -27,7 +27,6 @@ Generated plots, report drafts, proposal PDFs, and old result artifacts were int
 Python 3.10+ is required. MuJoCo dependencies are installed through `gymnasium[mujoco]`.
 
 ```bash
-cd /home/abhinav/repos/CS224R-final-project
 python -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
@@ -76,13 +75,13 @@ python -m rl_sequencing.offline.iql --env-id Hopper-v4 --total-updates 100000
 python -m rl_sequencing.offline.awac --env-id Hopper-v4 --total-updates 100000
 ```
 
-Local multi-GPU IQL transfer sweep helper from the Abhinav branch:
+Local multi-GPU IQL transfer sweep helper:
 
 ```bash
-python -m rl_sequencing.tools.run_iql_local --gpus 0,1 --results-dir results/raw/abhinav_task
+python -m rl_sequencing.tools.run_iql_local --gpus 0,1 --results-dir results/raw/iql_transfer
 python -m rl_sequencing.analysis.plot_iql_results \
-  --results-dir results/raw/abhinav_task/tier2_iql \
-  --summary-json results/processed/abhinav_task_iql_local/summary.json
+  --results-dir results/raw/iql_transfer/tier2_iql \
+  --summary-json results/processed/iql_transfer/summary.json
 ```
 
 Use a saved offline policy to warm-start SAC:
