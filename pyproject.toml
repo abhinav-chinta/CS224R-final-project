@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cs224r-final-project"
+version = "0.1.0"
+description = "Algorithm sequencing experiments for MuJoCo deep reinforcement learning."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "gymnasium[mujoco]>=1.0",
+    "just-d4rl>=0.2407.5",
+    "matplotlib>=3.8",
+    "modal>=1.0",
+    "mujoco>=3.1",
+    "numpy<2",
+    "pandas>=2.0",
+    "torch>=2.2",
+    "wandb>=0.16",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+legacy-d4rl = [
+    "d4rl",
+    "gym<0.26",
+]
+
+[project.scripts]
+rl-sac = "rl_sequencing.trainers.sac:main"
+rl-ppo = "rl_sequencing.trainers.ppo:main"
+rl-sac-to-ppo = "rl_sequencing.trainers.sac_to_ppo:main"
+rl-ppo-to-sac = "rl_sequencing.trainers.ppo_to_sac:main"
+rl-bc = "rl_sequencing.offline.bc:main"
+rl-iql = "rl_sequencing.offline.iql:main"
+rl-awac = "rl_sequencing.offline.awac:main"
+rl-cache-demos = "rl_sequencing.data.demos:main"
+rl-summarize-baselines = "rl_sequencing.analysis.summarize_baselines:main"
+rl-summarize-handoffs = "rl_sequencing.analysis.summarize_online_handoffs:main"
+rl-summarize-warmstarts = "rl_sequencing.analysis.summarize_offline_warmstarts:main"
+rl-plot-iql = "rl_sequencing.analysis.plot_iql_results:main"
+rl-check-starter = "rl_sequencing.tools.check_starter_compatibility:main"
+rl-run-iql-local = "rl_sequencing.tools.run_iql_local:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"

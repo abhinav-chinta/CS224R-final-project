@@ -1,0 +1,9 @@
+{
+  "envs": ["Hopper-v4"],
+  "seeds": [0],
+  "total_timesteps": 10000,
+  "eval_interval": 5000,
+  "num_eval_episodes": 2,
+  "methods": ["sac", "ppo", "sac_to_ppo", "ppo_to_sac"]
+}
+

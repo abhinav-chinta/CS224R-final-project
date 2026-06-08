@@ -1,0 +1,19 @@
+{
+  "envs": ["Hopper-v4", "Walker2d-v4", "HalfCheetah-v4", "Ant-v4"],
+  "seeds": [0, 1, 2, 3, 4],
+  "total_timesteps": 500000,
+  "eval_interval": 5000,
+  "num_eval_episodes": 5,
+  "single_algorithms": ["ppo", "sac"],
+  "online_handoffs": [
+    {"sequence": ["ppo", "sac"], "switch_fractions": [0.25, 0.5, 0.75]},
+    {"sequence": ["sac", "ppo"], "switch_fractions": [0.25, 0.5, 0.75]}
+  ],
+  "offline_warmstarts": [
+    ["bc"],
+    ["bc", "sac"],
+    ["bc", "ppo"],
+    ["bc", "sac", "ppo"]
+  ]
+}
+
